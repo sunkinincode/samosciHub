@@ -1,0 +1,31 @@
+# Dependencies & Next.js build outputs
+node_modules
+.next
+out
+next-env.d.ts
+
+# OS & logs
+.DS_Store
+*.log
+
+# Environment variables & local secrets
+.env
+.env.*
+
+# Internal tooling cache
+.impeccable/
+
+# Runtime JSON DB & user-uploaded media (auto-seeded from src/lib/seed-data.ts on first run)
+data/hub-data.json
+data/*.tmp
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Duplicate original raw assets in root (clean copies live under public/assets/)
+/Architectural Octagonal Plaza Blueprint.png
+/Blueprint Dome Pavilion Wireframe.png
+/Modern Architectural Complex Wireframe.png
+/logo-final-notext-white.svg
+/logo-final-notext.svg
+/logo-final-text-white.svg
+/logo-final-text.svg

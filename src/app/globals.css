@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --signal-yellow: #ffe600;
+  --navy-black: #080b11;
+  --navy-surface: #0d131f;
+  --off-white: #f4f4f0;
+  --card-white: #ffffff;
+}
+
+html,
+body {
+  background-color: #080b11;
+  color: #ffffff;
+  font-feature-settings: "ss01", "ss02";
+  color-scheme: dark;
+}
+
+::selection {
+  background-color: #ffe600;
+  color: #080b11;
+}
+
+/* Custom architectural scrollbar for inner modal/fallback areas */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080b11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffe600;
+}
+
+/* Full-screen SAMO SCI 69 Logo Zoom & Fade intro animation */
+@keyframes logoIntroZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+  28% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  52% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.6);
+  }
+}
+
+@keyframes overlayFadeOut {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-logo-zoom {
+  animation: logoIntroZoom 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-intro-overlay {
+  animation: overlayFadeOut 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Slide entrance & deck curtain utilities */
+@keyframes slideReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-reveal {
+  opacity: 0;
+  animation: slideReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 {
+  animation-delay: 120ms;
+}
+
+.delay-200 {
+  animation-delay: 240ms;
+}
+
+.delay-300 {
+  animation-delay: 360ms;
+}
+
+.slide-curtain {
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-logo-zoom,
+  .animate-intro-overlay,
+  .animate-slide-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .slide-curtain {
+    transition-duration: 150ms;
+  }
+}
